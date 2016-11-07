@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>City Name</title>
+</head>
+<body>
+	<form action="/WeatherQuery/" method='get'>
+		<dt>CityName:
+		<dd><input type=text name="city">
+		<!--a href="/WeatherQuery/">查询</a-->
+		<dd><input type="submit" value="Search">
+	</form>
+	{% if weather %}
+		<p>{{ weather }}</p>
+	{% endif %}
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Amfang</title>
+</head>
+<body>
+	<form action="" method='get'>
+		<a href="/SupportDataSetQuery/">查询所有城市</a>
+	</form>
+	{% for eachcity in city%}
+		<li>{{ eachcity }}</li>
+	{% endfor %}
+
+</body>
+</html>
