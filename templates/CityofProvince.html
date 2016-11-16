@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>City of Province</title>
+</head>
+<body>
+	<form action="/SupportCityQuery/" method='get'>
+		<dt>ProvinceName:
+		<dd><input type=text name="province">
+		<!--a href="/WeatherQuery/">查询</a-->
+		<dd><input type="submit" value="Search">
+	</form>
+	{% for eachcity in city %}
+		<li>{{ eachcity }}</li>
+	{% endfor %}
+</body>
+</html>

@@ -27,10 +27,17 @@ def WeatherQuery(request):
 		return render_to_response('WeatherResult.html')
 	#return render_to_response('WeatherResult.html')
 
-def SupportCityQuery(request,provincename):
+def SupportCityQuery(request):
 	client = weatherclient()
-	supportcity = client.service.getSupportCity(provincename)
-	return supportcity
+	if 'province' in request.GET:
+		provincename=request.GET['province']
+		supportcity = str(client.service.getSupportCity(provincename))
+		temp=supportcity.decode('utf-8')
+		res=r'"(.+) '
+		supportcityname=re.findall(res,temp)
+		return render_to_response('CityofProvince.html',{'city':supportcityname})
+	else:
+		return render_to_response('CityofProvince.html')
 
 def SupportDataSetQuery(request):
 	client =weatherclient()
@@ -42,5 +49,8 @@ def SupportDataSetQuery(request):
 
 def SupportProvinceQuery(request):
 	client = weatherclient()
-	supportprovince = client.service.GetSupportProvince()
-	return supportprovince
+	supportprovince = str(client.service.getSupportProvince())
+	temp1 = supportprovince.decode('utf-8')
+	res=r'"(.+)"'
+	provincename = re.findall(res,temp1)
+	return render_to_response('ProvinceName.html',{'province':provincename})

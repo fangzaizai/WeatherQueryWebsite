@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Support Province</title>
+</head>
+<body>
+	<form action="" method='get'>
+		<a href="/SupportProvinceQuery/">查询支持的省份</a>
+	</form>
+	{% for eachprovince in province %}
+		<li>{{ eachprovince }}</li>
+	{% endfor %}
+
+</body>
+</html>
